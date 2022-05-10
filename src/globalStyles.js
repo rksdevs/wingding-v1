@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     --yellow: #FFD369;
     --black2: #222831;
     --white2: #EEEEEE;
+    --pink: #F95959;
+    --pink2: #9f7f7f;
 
  }
  *,*::before,*::after{
