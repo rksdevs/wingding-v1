@@ -1,5 +1,6 @@
 import logo from "../assets/MOK-4.png";
 import styled from "styled-components";
+import { useState } from "react";
 
 const Headers = styled.header`
   display: flex;
@@ -27,6 +28,10 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media only Screen and (max-width: 48em) {
+    display: none;
+  }
 
   a {
     font-weight: 600;
@@ -65,7 +70,75 @@ const Button = styled.button`
   }
 `;
 
+const HamburgerBtn = styled.button`
+  position: relative;
+  background-color: transparent;
+  width: 2rem;
+  height: 2px;
+  margin-top: 0rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  display: none;
+
+  @media only Screen and (max-width: 48em) {
+    display: inline-block;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    background-color: var(--white);
+    width: 2rem;
+    height: 2px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  &::before {
+    top: ${(props) => (props.clicked ? "0" : "-0.5rem")};
+    transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
+  }
+  &::after {
+    top: ${(props) => (props.clicked ? "0" : "0.5rem")};
+    transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
+  }
+`;
+
+const MobileMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  opacity: ${(props) => (props.clicked ? "1" : "0")};
+  visibility: ${(props) => (props.clicked ? "visible" : "hidden")};
+
+  background: rgba(53, 53, 63, 0.95);
+  border-radius: 20px;
+  margin: 0.5rem;
+  overflow-x: hidden;
+
+  a {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 1.5rem;
+    cursor: pointer;
+  }
+`;
+
 const Header = () => {
+  const [click, setClick] = useState(false);
+  // const handleClick = (id, e) => {
+  //   setClick(!click);
+  //   scrollUp(id, e);
+  // };
   return (
     <Headers>
       <Logo>
@@ -81,6 +154,24 @@ const Header = () => {
           <Button>Contact Us</Button>
         </a>
       </Nav>
+      <HamburgerBtn clicked={click} onClick={() => setClick(!click)}>
+        <span></span>
+      </HamburgerBtn>
+
+      <MobileMenu clicked={click}>
+        <a href="#home" onClick={() => setClick(!click)}>
+          Home
+        </a>
+        <a href="#services" onClick={() => setClick(!click)}>
+          Services
+        </a>
+        <a href="#about" onClick={() => setClick(!click)}>
+          About
+        </a>
+        <a href="#contact" onClick={() => setClick(!click)}>
+          <Button>Contact Us</Button>
+        </a>
+      </MobileMenu>
     </Headers>
   );
 };
