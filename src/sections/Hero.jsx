@@ -21,7 +21,13 @@ const HeroSection = styled.div`
   position: relative;
 
   @media only Screen and (max-width: 48em) {
-    opacity: 0.5;
+    height: 70vw;
+    display: block;
+  }
+
+  @media only Screen and (max-width: 420px) {
+    height: auto;
+    padding-bottom: 2rem;
   }
 `;
 
@@ -48,6 +54,11 @@ const PinkBlob = styled.div`
   right: 12rem;
   top: 6rem;
   z-index: 15;
+
+  @media only Screen and (max-width: 48em) {
+    right: 1rem;
+    top: 1rem;
+  }
 `;
 
 const MainContent = styled.div`
@@ -69,6 +80,7 @@ const LeftBlock = styled.div`
   align-items: flex-start;
   width: 50%;
   line-height: 1.5;
+  z-index: 100;
 
   @media only Screen and (max-width: 48em) {
     width: 80%;
@@ -88,6 +100,10 @@ const Topic = styled.div`
   font-size: calc(0.4rem + 0.4vw);
   padding: 0.5rem 1rem;
   border-radius: 10px;
+
+  @media only Screen and (max-width: 48em) {
+    margin-top: 1rem;
+  }
 `;
 const Circle = styled.span`
   display: inline-block;
@@ -96,6 +112,11 @@ const Circle = styled.span`
   border-radius: 50%;
   background-color: var(--pink);
   margin-right: 0.5rem;
+
+  @media only Screen and (max-width: 48em) {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
 `;
 const Title = styled.h1`
   font-size: calc(2rem + 1vw);
@@ -138,10 +159,13 @@ const TeamIllustration = styled.img`
   animation: ${move} 2.5s ease infinite;
 
   @media only Screen and (max-width: 48em) {
+    display: none;
     align-self: flex-start;
     position: absolute;
     bottom: 0;
+    right: 0;
     opacity: 0.5;
+    width: 100%;
   }
 `;
 
