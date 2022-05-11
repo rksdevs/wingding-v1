@@ -1,7 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import waves from "../assets/waves.svg";
-import taskDone from "../assets/taxi-tasks-done.png";
+// import taskDone from "../assets/taxi-tasks-done.png";
 import aboutConversation from "../assets/taxi-conversation.png";
+
+const move = keyframes`
+0% { transform: translateY(-5px)         }
+    50% { transform: translateY(10px) translateX(10px)        }
+    100% { transform: translateY(-5px)         }
+`;
 
 const AboutSection = styled.section`
   width: 100vw;
@@ -74,6 +80,8 @@ const AboutConvo = styled.div`
   align-items: center;
   width: 37%;
   padding-bottom: 5rem;
+
+  animation: ${move} 2.5s ease infinite;
 
   @media only Screen and (max-width: 40em) {
     width: 100%;
