@@ -6,6 +6,11 @@ import DecorServices from "../assets/decorservices-2.png";
 import DanceCostume from "../assets/dancecostume.png";
 import DanceStudio from "../assets/dancestudio.png";
 import Photography from "../assets/photography-1.png";
+import TeamCard from "../components/TeamCard";
+import avatar1 from "../assets/avatar-1.jpg";
+import avatar2 from "../assets/avatar-2.jpg";
+import avatar3 from "../assets/avatar-3.jpg";
+import avatar4 from "../assets/avatar-4.jpg";
 
 const ServiceSection = styled.section`
   width: 100vw;
@@ -26,7 +31,7 @@ const Background = styled.div`
   bottom: 0;
   width: 100vw;
   z-index: -1;
-  background-color: var(--black);
+  background-color: var(--white);
   background-size: auto 100vh;
   background-repeat: no-repeat;
 
@@ -35,7 +40,7 @@ const Background = styled.div`
   }
 `;
 const Title = styled.h1`
-  color: var(--white);
+  color: var(--black);
   display: inline-block;
   font-size: 2rem;
   /* margin-top: 4rem; */
@@ -83,56 +88,51 @@ const CardDiv = styled.div`
   }
 `;
 
-const Services = () => {
+const Teams = () => {
   return (
     <ServiceSection>
       <Background>
-        <Title>Services We Offer</Title>
+        <Title>Our Team</Title>
       </Background>
       <ServiceCardDiv>
         <CardGroup>
           <CardDiv>
-            <ServiceCard
-              pic={EventManagement}
-              title="Event Management"
-              content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+            <TeamCard
+              avatar={avatar1}
+              title="Jane Doe"
+              designation="Founder"
+              details="Reference site about Lorem Ipsum, giving information on its origins,
+              as well as a random Lipsum generator."
+              facebook=""
+              linkedin=""
+              twitter=""
+              instagram=""
             />
           </CardDiv>
           <CardDiv>
-            <ServiceCard
-              pic={ArtistManagement}
-              title="Artist Management"
-              content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+            <TeamCard
+              avatar={avatar2}
+              title="Jhon Doe"
+              designation="CEO"
+              details="Reference site about Lorem Ipsum, giving information on its origins,
+              as well as a random Lipsum generator."
+              facebook=""
+              linkedin=""
+              twitter=""
+              instagram=""
             />
           </CardDiv>
           <CardDiv>
-            <ServiceCard
-              pic={DecorServices}
-              title="Decor Services"
-              content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
-            />
-          </CardDiv>
-        </CardGroup>
-        <CardGroup>
-          <CardDiv>
-            <ServiceCard
-              pic={DanceCostume}
-              title="Dance Costume Store"
-              content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
-            />
-          </CardDiv>
-          <CardDiv>
-            <ServiceCard
-              pic={DanceStudio}
-              title="Dance Studio"
-              content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
-            />
-          </CardDiv>
-          <CardDiv>
-            <ServiceCard
-              pic={Photography}
-              title="Photography"
-              content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+            <TeamCard
+              avatar={avatar3}
+              title="Jude Doe"
+              designation="Director"
+              details="Reference site about Lorem Ipsum, giving information on its origins,
+              as well as a random Lipsum generator."
+              facebook=""
+              linkedin=""
+              twitter=""
+              instagram=""
             />
           </CardDiv>
         </CardGroup>
@@ -141,4 +141,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Teams;

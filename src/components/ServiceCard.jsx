@@ -101,7 +101,7 @@ const CardText = styled.h5`
 
 const CardButton = styled.button`
   padding: 0.5rem 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   border-radius: 10px;
   cursor: pointer;
   font-size: calc(0.5rem + 0.5vw);
