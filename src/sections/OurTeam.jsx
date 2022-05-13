@@ -12,6 +12,7 @@ const TeamSection = styled.div`
   align-items: center;
   width: 100%;
   position: relative;
+  height: 50vh;
 `;
 
 const Title = styled.h1`
@@ -41,45 +42,57 @@ const CardGroup = styled.div`
   margin-bottom: 5rem;
 `;
 
+const CardSection = styled.div`
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 5rem;
+`;
+
 const OurTeam = () => {
   return (
     <TeamSection>
       <Title>Our Team</Title>
-      <CardGroup>
-        <NewTeamCard
-          avatar={avatar1}
-          title="Jhon Doe"
-          designation="Founder"
-          details="Reference site about Lorem Ipsum, giving information on its origins,
+      <CardSection>
+        <CardGroup>
+          <NewTeamCard
+            avatar={avatar1}
+            title="Jhon Doe"
+            designation="Founder"
+            details="Reference site about Lorem Ipsum, giving information on its origins,
               as well as a random Lipsum generator."
-          facebook=""
-          linkedin=""
-          twitter=""
-          instagram=""
-        />
-        <NewTeamCard
-          avatar={avatar2}
-          title="Jane Doe"
-          designation="Co-Founder"
-          details="Reference site about Lorem Ipsum, giving information on its origins,
+            facebook=""
+            linkedin=""
+            twitter=""
+            instagram=""
+          />
+          <NewTeamCard
+            avatar={avatar2}
+            title="Jane Doe"
+            designation="Co-Founder"
+            details="Reference site about Lorem Ipsum, giving information on its origins,
               as well as a random Lipsum generator."
-          facebook=""
-          linkedin=""
-          twitter=""
-          instagram=""
-        />
-        <NewTeamCard
-          avatar={avatar3}
-          title="Jake Doe"
-          designation="CEO"
-          details="Reference site about Lorem Ipsum, giving information on its origins,
+            facebook=""
+            linkedin=""
+            twitter=""
+            instagram=""
+          />
+          <NewTeamCard
+            avatar={avatar3}
+            title="Jake Doe"
+            designation="CEO"
+            details="Reference site about Lorem Ipsum, giving information on its origins,
               as well as a random Lipsum generator."
-          facebook=""
-          linkedin=""
-          twitter=""
-          instagram=""
-        />
-      </CardGroup>
+            facebook=""
+            linkedin=""
+            twitter=""
+            instagram=""
+          />
+        </CardGroup>
+      </CardSection>
     </TeamSection>
   );
 };

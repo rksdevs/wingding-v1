@@ -13,9 +13,9 @@ const CardContainer = styled.div`
   position: relative;
 `;
 const Card = styled.div`
-  width: 300px;
+  width: 80%;
   height: auto;
-  background: #efefef;
+  background: var(--yellow);
   padding: 30px;
   box-sizing: border-box;
   text-align: center;
@@ -31,7 +31,7 @@ const Card = styled.div`
     content: "";
     width: 100px;
     height: 100px;
-    background: #ddd;
+    background: var(--nav2);
     bottom: 0;
     right: 0;
     z-index: -1;
@@ -62,9 +62,11 @@ const CardTitle = styled.h2`
 `;
 const CardDesignation = styled.h5`
   font-size: 14px;
-  color: #f39c12;
+  color: var(--pink);
 `;
-const CardDetails = styled.p``;
+const CardDetails = styled.p`
+  margin-top: 20px;
+`;
 const CardSocial = styled.ul`
   list-style: none;
 `;
@@ -72,7 +74,7 @@ const CardSocialListItem = styled.li`
   display: inline-block;
   margin: 20px 10px;
   a {
-    color: #2980b9;
+    color: var(--pink2);
     font-size: 20px;
     transition: 0.2s;
 
