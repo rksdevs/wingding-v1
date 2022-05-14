@@ -43,6 +43,11 @@ const Card = styled.div`
     transform: scale(10);
     color: var(--black);
   }
+
+  @media only Screen and (max-width: 40em) {
+    width: 80%;
+    height: auto;
+  }
 `;
 const CardMedia = styled.div`
   img {

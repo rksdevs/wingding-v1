@@ -1,18 +1,10 @@
 import styled from "styled-components";
-import ServiceCard from "../components/ServiceCard";
-import ArtistManagement from "../assets/artistmanagement.png";
-import EventManagement from "../assets/eventmanagement-2.png";
-import DecorServices from "../assets/decorservices-2.png";
-import DanceCostume from "../assets/dancecostume.png";
-import DanceStudio from "../assets/dancestudio.png";
-import Photography from "../assets/photography-1.png";
 import TeamCard from "../components/TeamCard";
 import avatar1 from "../assets/avatar-1.jpg";
 import avatar2 from "../assets/avatar-2.jpg";
 import avatar3 from "../assets/avatar-3.jpg";
-import avatar4 from "../assets/avatar-4.jpg";
 
-const ServiceSection = styled.section`
+const TeamsSection = styled.section`
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -43,7 +35,6 @@ const Title = styled.h1`
   color: var(--black);
   display: inline-block;
   font-size: 2rem;
-  /* margin-top: 4rem; */
   margin-top: 2rem;
   position: relative;
   &::before {
@@ -59,12 +50,15 @@ const Title = styled.h1`
   }
 `;
 
-const ServiceCardDiv = styled.div`
+const TeamCardDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 2rem;
+  @media only Screen and (max-width: 40em) {
+    flex-direction: column;
+  }
 `;
 const CardGroup = styled.div`
   display: flex;
@@ -90,11 +84,9 @@ const CardDiv = styled.div`
 
 const Teams = () => {
   return (
-    <ServiceSection>
-      <Background>
-        <Title>Our Team</Title>
-      </Background>
-      <ServiceCardDiv>
+    <TeamsSection>
+      <Title>Our Team</Title>
+      <TeamCardDiv>
         <CardGroup>
           <CardDiv>
             <TeamCard
@@ -136,8 +128,8 @@ const Teams = () => {
             />
           </CardDiv>
         </CardGroup>
-      </ServiceCardDiv>
-    </ServiceSection>
+      </TeamCardDiv>
+    </TeamsSection>
   );
 };
 

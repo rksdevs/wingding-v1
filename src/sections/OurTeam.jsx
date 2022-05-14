@@ -13,6 +13,10 @@ const TeamSection = styled.div`
   width: 100%;
   position: relative;
   height: 50vh;
+
+  @media only Screen and (max-width: 40em) {
+    height: auto;
+  }
 `;
 
 const Title = styled.h1`
@@ -33,153 +37,60 @@ const Title = styled.h1`
     border-bottom: 5px solid var(--pink);
   }
 `;
+
 const CardGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 5rem;
-`;
 
-const CardSection = styled.div`
-  display: flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-bottom: 5rem;
+  @media only Screen and (max-width: 40em) {
+    flex-direction: column;
+  }
 `;
 
 const OurTeam = () => {
   return (
     <TeamSection>
       <Title>Our Team</Title>
-      <CardSection>
-        <CardGroup>
-          <NewTeamCard
-            avatar={avatar1}
-            title="Jhon Doe"
-            designation="Founder"
-            details="Reference site about Lorem Ipsum, giving information on its origins,
+      <CardGroup>
+        <NewTeamCard
+          avatar={avatar1}
+          title="Jhon Doe"
+          designation="Founder"
+          details="Reference site about Lorem Ipsum, giving information on its origins,
               as well as a random Lipsum generator."
-            facebook=""
-            linkedin=""
-            twitter=""
-            instagram=""
-          />
-          <NewTeamCard
-            avatar={avatar2}
-            title="Jane Doe"
-            designation="Co-Founder"
-            details="Reference site about Lorem Ipsum, giving information on its origins,
+          facebook=""
+          linkedin=""
+          twitter=""
+          instagram=""
+        />
+        <NewTeamCard
+          avatar={avatar2}
+          title="Jane Doe"
+          designation="Co-Founder"
+          details="Reference site about Lorem Ipsum, giving information on its origins,
               as well as a random Lipsum generator."
-            facebook=""
-            linkedin=""
-            twitter=""
-            instagram=""
-          />
-          <NewTeamCard
-            avatar={avatar3}
-            title="Jake Doe"
-            designation="CEO"
-            details="Reference site about Lorem Ipsum, giving information on its origins,
+          facebook=""
+          linkedin=""
+          twitter=""
+          instagram=""
+        />
+        <NewTeamCard
+          avatar={avatar3}
+          title="Jake Doe"
+          designation="CEO"
+          details="Reference site about Lorem Ipsum, giving information on its origins,
               as well as a random Lipsum generator."
-            facebook=""
-            linkedin=""
-            twitter=""
-            instagram=""
-          />
-        </CardGroup>
-      </CardSection>
+          facebook=""
+          linkedin=""
+          twitter=""
+          instagram=""
+        />
+      </CardGroup>
     </TeamSection>
   );
 };
 
 export default OurTeam;
-
-{
-  /* <CardGroup>
-          <CardDiv>
-            <TeamCard
-              avatar={avatar1}
-              title="Jhon Doe"
-              designation="Founder"
-              details="Reference site about Lorem Ipsum, giving information on its origins,
-              as well as a random Lipsum generator."
-              facebook=""
-              linkedin=""
-              twitter=""
-              instagram=""
-            />
-          </CardDiv>
-          <CardDiv>
-            <TeamCard
-              avatar={avatar2}
-              title="Jane Doe"
-              designation="Co-Founder"
-              details="Reference site about Lorem Ipsum, giving information on its origins,
-              as well as a random Lipsum generator."
-              facebook=""
-              linkedin=""
-              twitter=""
-              instagram=""
-            />
-          </CardDiv>
-          <CardDiv>
-            <TeamCard
-              avatar={avatar3}
-              title="Jake Doe"
-              designation="CEO"
-              details="Reference site about Lorem Ipsum, giving information on its origins,
-              as well as a random Lipsum generator."
-              facebook=""
-              linkedin=""
-              twitter=""
-              instagram=""
-            />
-          </CardDiv>
-        </CardGroup>
-        <CardGroup>
-          <CardDiv>
-            <TeamCard
-              avatar={avatar4}
-              title="James Doe"
-              designation="President"
-              details="Reference site about Lorem Ipsum, giving information on its origins,
-              as well as a random Lipsum generator."
-              facebook=""
-              linkedin=""
-              twitter=""
-              instagram=""
-            />
-          </CardDiv>
-          <CardDiv>
-            <TeamCard
-              avatar={avatar1}
-              title="Joe Doe"
-              designation="Director"
-              details="Reference site about Lorem Ipsum, giving information on its origins,
-              as well as a random Lipsum generator."
-              facebook=""
-              linkedin=""
-              twitter=""
-              instagram=""
-            />
-          </CardDiv>
-          <CardDiv>
-            <TeamCard
-              avatar={avatar2}
-              title="Jimmy Doe"
-              designation="CTO"
-              details="Reference site about Lorem Ipsum, giving information on its origins,
-              as well as a random Lipsum generator."
-              facebook=""
-              linkedin=""
-              twitter=""
-              instagram=""
-            />
-          </CardDiv>
-        </CardGroup> */
-}

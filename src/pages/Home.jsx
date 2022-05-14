@@ -7,6 +7,7 @@ import Services from "../sections/Services";
 import Testimonials from "../sections/Testimonials";
 import OurTeam from "../sections/OurTeam";
 import Teams from "../sections/Teams";
+import TeamsSection from "../sections/TeamsSection";
 
 const Container = styled.div`
   display: flex;
@@ -22,8 +23,7 @@ const Home = () => {
         <Hero />
         <About />
         <Services />
-        <OurTeam />
-        {/* <Teams /> */}
+        <TeamsSection />
         <Testimonials />
         <Contact />
       </Container>

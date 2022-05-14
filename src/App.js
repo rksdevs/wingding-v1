@@ -12,10 +12,10 @@ function App() {
     <>
       <Suspense fallback={null}>
         <GlobalStyle />
+        <ScrollToTop />
         <Header />
         <Home />
         <Footer />
-        <ScrollToTop />
       </Suspense>
     </>
   );

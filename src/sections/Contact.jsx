@@ -2,15 +2,98 @@ import Facebook from "../assets/facebook-square-brands.svg";
 import LinkedId from "../assets/linkedin-brands.svg";
 import Twitter from "../assets/twitter-square-brands.svg";
 import Instagram from "../assets/instagram-square-brands.svg";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import CallIcon from "@mui/icons-material/Call";
+import MailIcon from "@mui/icons-material/Mail";
 import styled from "styled-components";
 
-const ContactSection = styled.section`
+const MainContainer = styled.div`
   width: 100vw;
-  padding: calc(2.5rem + 2.5vw) 0;
-  background-color: #0a0b10;
+  background-color: var(--nav);
+  display: flex;
+  flex-direction: rows;
+  align-items: center;
+  justify-content: space-evenly;
+  align-items: baseline;
+
+  @media only Screen and (max-width: 48em) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const QuickLinks = styled.section`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  align-items: center;
+  justify-content: center;
+
+  @media only Screen and (max-width: 48em) {
+    margin-top: 2rem;
+  }
+`;
+const CardSocial = styled.ul`
+  list-style: none;
+`;
+const CardSocialListItem = styled.li`
+  display: inline-block;
+  margin: 5px 5px;
+  a {
+    color: var(--pink2);
+    font-size: 15px;
+    border-bottom: 1px solid var(--pink2);
+    transition: 0.2s;
+
+    &:hover {
+      color: var(--yellow);
+    }
+  }
+`;
+
+const AddressSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media only Screen and (max-width: 48em) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+`;
+
+const AddressList = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const AddressItem = styled.li`
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px 5px;
+  color: var(--pink2);
+  span {
+    margin-right: 10px;
+    align-items: bottom;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+  }
+`;
+
+const LocationItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ContactSection = styled.section`
+  padding: calc(1rem + 1vw) 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -32,6 +115,10 @@ const Title = styled.h1`
     /* or 100px */
     border-bottom: 5px solid var(--pink);
   }
+
+  @media only Screen and (max-width: 48em) {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 const Icons = styled.div`
@@ -50,6 +137,17 @@ const Icons = styled.div`
     img {
       width: 3rem;
       height: 3rem;
+    }
+  }
+
+  @media only Screen and (max-width: 48em) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    a {
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
     }
   }
 `;
@@ -126,51 +224,117 @@ const Row = styled.div`
 `;
 const Contact = () => {
   return (
-    <ContactSection id="contact">
-      <Title>Get in touch</Title>
-      {/* <Text>Lorem ipsum dolor sit amet, consectetur adipisicing.</Text> */}
-      <Icons>
-        <a href="https://www.facebook.com/">
-          {" "}
-          <img src={Facebook} alt="Facebook" />
-        </a>
-        <a href="https://www.linkedin.com//">
-          <img src={LinkedId} alt="LinkedId" />
-        </a>
-        <a href="https://twitter.com/">
-          <img src={Twitter} alt="Twitter" />
-        </a>
-        <a href="https://www.instagram.com/">
-          <img src={Instagram} alt="Instagram" />
-        </a>
-      </Icons>
-      <Form>
-        <Row>
-          <input name="name" type="text" placeholder="your name" />
-          <input
-            name="email"
-            type="email"
-            placeholder="enter working email id"
-          />
-        </Row>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="2"
-          placeholder="your message"
-        ></textarea>
-        <div style={{ margin: "0 auto" }}>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-          >
-            Submit
-          </button>
-        </div>
-      </Form>
-    </ContactSection>
+    <MainContainer>
+      <ContactSection id="contact">
+        <Title>Get in touch</Title>
+        {/* <Text>Lorem ipsum dolor sit amet, consectetur adipisicing.</Text> */}
+        <Icons>
+          <a href="https://www.facebook.com/">
+            {" "}
+            <img src={Facebook} alt="Facebook" />
+          </a>
+          <a href="https://www.linkedin.com//">
+            <img src={LinkedId} alt="LinkedId" />
+          </a>
+          <a href="https://twitter.com/">
+            <img src={Twitter} alt="Twitter" />
+          </a>
+          <a href="https://www.instagram.com/">
+            <img src={Instagram} alt="Instagram" />
+          </a>
+        </Icons>
+        <Form>
+          <Row>
+            <input name="name" type="text" placeholder="your name" />
+            <input
+              name="email"
+              type="email"
+              placeholder="enter working email id"
+            />
+          </Row>
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="2"
+            placeholder="your message"
+          ></textarea>
+          <div style={{ margin: "0 auto" }}>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              Submit
+            </button>
+          </div>
+        </Form>
+      </ContactSection>
+
+      <QuickLinks>
+        <Title>Quick Links</Title>
+        <CardSocialListItem>
+          <a href="">Home</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">About</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Contact</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Event Management</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Artist Management</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Decors</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Dance Costumes</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Dance Studio</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Photography</a>
+        </CardSocialListItem>
+        <CardSocialListItem>
+          <a href="">Members</a>
+        </CardSocialListItem>
+      </QuickLinks>
+
+      <AddressSection>
+        <Title>Address</Title>
+        <AddressList>
+          <AddressItem>
+            <p>
+              <span>
+                <LocationOnIcon />
+              </span>
+              5th Avenue, Hyderabad 500032
+            </p>
+          </AddressItem>
+          <AddressItem>
+            <p>
+              <span>
+                <MailIcon />
+              </span>
+              xyz@gmail.com
+            </p>
+          </AddressItem>
+          <AddressItem>
+            <p>
+              <span>
+                <CallIcon />
+              </span>
+              +91 1234 567890
+            </p>
+          </AddressItem>
+        </AddressList>
+      </AddressSection>
+    </MainContainer>
   );
 };
 
