@@ -2,7 +2,6 @@ import styled, { keyframes } from "styled-components";
 import White from "../assets/blobgrey6.png";
 import Pink2 from "../assets/blobpink9.png";
 import Arrow from "../assets/Arrow Right.svg";
-import TeamIllu from "../assets/taxi-teen-party-1.png";
 
 const move = keyframes`
 0% { transform: translateY(-5px)  }
@@ -169,13 +168,10 @@ const TeamIllustration = styled.img`
   }
 `;
 
-const Hero = () => {
+const Hero = ({ title, subText, imgSource }) => {
   return (
     <HeroSection>
       <Blobs>
-        {/* <YellowBlob>
-          <img src={Yellow} alt="Yellow Blob" width="400" height="400" />
-        </YellowBlob> */}
         <WhiteBlob>
           <img src={White} alt="White Blob" width="400" height="400" />
         </WhiteBlob>
@@ -189,18 +185,15 @@ const Hero = () => {
             <Circle />
             <span>Welcome</span>
           </Topic>
-          <Title>The best event organizers in Hyderabad</Title>
-          <SubText>
-            from managing artists to photography we take care of all your needs
-            for any kind of events
-          </SubText>
+          <Title>{title}</Title>
+          <SubText>{subText}</SubText>
           <CTA>
             Get in touch &nbsp;
             <img src={Arrow} alt="CTA" width="400" height="400" />
           </CTA>
         </LeftBlock>
         <TeamIllustration
-          src={TeamIllu}
+          src={imgSource}
           alt="Team Illustration"
           width="400"
           height="400"

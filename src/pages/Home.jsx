@@ -5,9 +5,8 @@ import About from "../sections/About";
 import Contact from "../sections/Contact";
 import Services from "../sections/Services";
 import Testimonials from "../sections/Testimonials";
-import OurTeam from "../sections/OurTeam";
-import Teams from "../sections/Teams";
 import TeamsSection from "../sections/TeamsSection";
+import { homePage } from "../data";
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +19,11 @@ const Home = () => {
   return (
     <div>
       <Container>
-        <Hero />
+        <Hero
+          title={homePage.title}
+          subText={homePage.subText}
+          imgSource={homePage.imgSource}
+        />
         <About />
         <Services />
         <TeamsSection />
