@@ -6,6 +6,7 @@ import { photography } from "../data";
 // import ImageSlider from "../slider/ImageSlider";
 import TeamsSection from "../sections/TeamsSection";
 import TitlebarImageList from "../components/ImageList";
+import About from "../sections/About";
 
 const Container = styled.div`
   display: flex;
@@ -42,6 +43,7 @@ const Photography = () => {
           subText={photography.subText}
           imgSource={photography.imgSource}
         />
+        <About />
         {/* <ImageSlider /> */}
         <Title>Gallery</Title>
         <TitlebarImageList />

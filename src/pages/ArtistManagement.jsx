@@ -5,6 +5,7 @@ import Contact from "../sections/Contact";
 import { artistManagement } from "../data";
 import TeamsSection from "../sections/TeamsSection";
 import TitlebarImageList from "../components/ImageList";
+import About from "../sections/About";
 
 const Container = styled.div`
   display: flex;
@@ -41,6 +42,7 @@ const ArtistManagement = () => {
           subText={artistManagement.subText}
           imgSource={artistManagement.imgSource}
         />
+        <About />
         <Title>Gallery</Title>
         <TitlebarImageList />
         <TeamsSection />

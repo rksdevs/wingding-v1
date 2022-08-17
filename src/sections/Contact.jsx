@@ -301,7 +301,7 @@ const Contact = () => {
           <a href="">Photography</a>
         </CardSocialListItem>
         <CardSocialListItem>
-          <a href="">Members</a>
+          <a href="">Admin Mode</a>
         </CardSocialListItem>
       </QuickLinks>
 

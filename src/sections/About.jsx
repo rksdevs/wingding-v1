@@ -112,7 +112,7 @@ const Circle = styled.span`
 
 const About = () => {
   return (
-    <AboutSection>
+    <AboutSection id="about">
       <Waves src={waves} alt="Waves" width="400" height="400" />
       {/* <TaskDone>
         <img src={taskDone} alt="Task Done" width="400" height="400" />

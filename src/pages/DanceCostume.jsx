@@ -5,6 +5,7 @@ import Contact from "../sections/Contact";
 import { danceCostume } from "../data";
 import TeamsSection from "../sections/TeamsSection";
 import TitlebarImageList from "../components/ImageList";
+import About from "../sections/About";
 
 const Container = styled.div`
   display: flex;
@@ -41,8 +42,10 @@ const DanceCostume = () => {
           subText={danceCostume.subText}
           imgSource={danceCostume.imgSource}
         />
+        <About />
         <Title>Gallery</Title>
         <TitlebarImageList />
+
         <TeamsSection />
         <Contact />
       </Container>

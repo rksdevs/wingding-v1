@@ -52,7 +52,7 @@ const CardGroup = styled.div`
 
 const OurTeam = () => {
   return (
-    <TeamSection>
+    <TeamSection id="ourTeam">
       <Title>Our Team</Title>
       <CardGroup>
         <NewTeamCard

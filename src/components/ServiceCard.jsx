@@ -35,6 +35,7 @@
 
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
 
 const move = keyframes`
 0% { transform: translateY(-5px)         }
@@ -92,12 +93,12 @@ const CardText = styled.h5`
   line-height: 1.5;
 `;
 
-// const CardButtonDiv = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// `;
+const CardButtonDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const CardButton = styled.button`
   padding: 0.5rem 1rem;
@@ -113,10 +114,8 @@ const CardButton = styled.button`
   transition: all 0.2s;
   background-color: var(--nav);
   color: var(--yellow);
-  width: 30%;
 
   @media only Screen and (max-width: 40em) {
-    width: 50%;
   }
 
   &:hover {
@@ -127,7 +126,8 @@ const CardButton = styled.button`
   }
 `;
 
-const ServiceCard = ({ pic, title, content }) => {
+const ServiceCard = ({ pic, title, content, to }) => {
+  const navigate = useNavigate();
   return (
     <Card>
       <CardImage>
@@ -136,10 +136,11 @@ const ServiceCard = ({ pic, title, content }) => {
       <CardContent>
         <CardTitle>{title}</CardTitle>
         <CardText>{content}</CardText>
-        {/* <CardButtonDiv>
-          <CardButton>Explore</CardButton>
-        </CardButtonDiv> */}
-        <CardButton>Explore</CardButton>
+        <CardButtonDiv>
+          <Link to={to}>
+            <CardButton>Explore</CardButton>
+          </Link>
+        </CardButtonDiv>
       </CardContent>
     </Card>
   );

@@ -85,7 +85,7 @@ const CardDiv = styled.div`
 
 const Services = () => {
   return (
-    <ServiceSection>
+    <ServiceSection id="services">
       <Background>
         <Title>Services We Offer</Title>
       </Background>
@@ -96,6 +96,7 @@ const Services = () => {
               pic={EventManagement}
               title="Event Management"
               content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+              to="/eventmanagement"
             />
           </CardDiv>
           <CardDiv>
@@ -103,6 +104,7 @@ const Services = () => {
               pic={ArtistManagement}
               title="Artist Management"
               content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+              to="/artistmanagement"
             />
           </CardDiv>
           <CardDiv>
@@ -110,6 +112,7 @@ const Services = () => {
               pic={DecorServices}
               title="Decor Services"
               content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+              to="/decorcompany"
             />
           </CardDiv>
         </CardGroup>
@@ -119,6 +122,7 @@ const Services = () => {
               pic={DanceCostume}
               title="Dance Costume Store"
               content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+              to="/dancecostume"
             />
           </CardDiv>
           <CardDiv>
@@ -126,6 +130,7 @@ const Services = () => {
               pic={DanceStudio}
               title="Dance Studio"
               content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+              to="/dancestudio"
             />
           </CardDiv>
           <CardDiv>
@@ -133,6 +138,7 @@ const Services = () => {
               pic={Photography}
               title="Photography"
               content="We Provide the best event management services in Hyderabad. We Provide the best event management services in Hyderabad"
+              to="/photography"
             />
           </CardDiv>
         </CardGroup>

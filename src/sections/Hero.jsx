@@ -170,7 +170,7 @@ const TeamIllustration = styled.img`
 
 const Hero = ({ title, subText, imgSource }) => {
   return (
-    <HeroSection>
+    <HeroSection id="home">
       <Blobs>
         <WhiteBlob>
           <img src={White} alt="White Blob" width="400" height="400" />
