@@ -20,7 +20,7 @@ const Headers = styled.header`
 const Logo = styled.a`
   display: flex;
   align-items: center;
-  width: 4.5rem;
+  width: 3.75rem;
   height: auto;
   cursor: pointer;
 `;
@@ -138,7 +138,7 @@ const MobileMenu = styled.div`
 
 const Header = () => {
   const [click, setClick] = useState(false);
-  const [currentLocation, setCurrentLocation] = useState(false);
+  // const [currentLocation, setCurrentLocation] = useState(false);
 
   // const handleClick = (id, e) => {
   //   setClick(!click);
@@ -146,7 +146,7 @@ const Header = () => {
   // };
   //const handleClick = () => setClick(!click);
   const ref = useRef(null);
-  const location = useLocation();
+  // const location = useLocation();
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -165,12 +165,12 @@ const Header = () => {
     scrollUp(id, e);
   };
 
-  useEffect(() => {
-    location.pathname == "/"
-      ? setCurrentLocation(true)
-      : setCurrentLocation(false);
-    console.log(currentLocation);
-  }, []);
+  // useEffect(() => {
+  //   location.pathname == "/"
+  //     ? setCurrentLocation(true)
+  //     : setCurrentLocation(false);
+  //   console.log(currentLocation);
+  // }, []);
 
   useEffect(() => {
     const element = ref.current;
@@ -183,7 +183,7 @@ const Header = () => {
         top: "0",
         left: "0",
         right: "0",
-        padding: "1rem 2.5rem",
+        padding: "0.5rem 2.5rem",
 
         borderRadius: "0 0 50px 50px",
 
@@ -205,7 +205,7 @@ const Header = () => {
         top: "1rem",
         left: "3rem",
         right: "3rem",
-        padding: "1.5rem 2rem",
+        padding: "0.5rem 2rem",
 
         borderRadius: "50px",
 

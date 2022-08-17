@@ -6,6 +6,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
 import MailIcon from "@mui/icons-material/Mail";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -38,7 +39,7 @@ const CardSocial = styled.ul`
 const CardSocialListItem = styled.li`
   display: inline-block;
   margin: 5px 5px;
-  a {
+  p {
     color: var(--pink2);
     font-size: 15px;
     border-bottom: 1px solid var(--pink2);
@@ -274,34 +275,39 @@ const Contact = () => {
       <QuickLinks>
         <Title>Quick Links</Title>
         <CardSocialListItem>
-          <a href="">Home</a>
+          <Link to="/artistmanagement" as="li">
+            <p>Artist Management</p>
+          </Link>
         </CardSocialListItem>
         <CardSocialListItem>
-          <a href="">About</a>
+          <Link to="/eventmanagement" as="li">
+            <p>Event Management</p>
+          </Link>
         </CardSocialListItem>
         <CardSocialListItem>
-          <a href="">Contact</a>
+          <Link to="/dancecostume" as="li">
+            <p>Dance Costume</p>
+          </Link>
         </CardSocialListItem>
         <CardSocialListItem>
-          <a href="">Event Management</a>
+          <Link to="/dancestudio" as="li">
+            <p>Dance Studio</p>
+          </Link>
         </CardSocialListItem>
         <CardSocialListItem>
-          <a href="">Artist Management</a>
+          <Link to="/decorcompany" as="li">
+            <p>Decors</p>
+          </Link>
         </CardSocialListItem>
         <CardSocialListItem>
-          <a href="">Decors</a>
+          <Link to="/photography" as="li">
+            <p>Photography</p>
+          </Link>
         </CardSocialListItem>
         <CardSocialListItem>
-          <a href="">Dance Costumes</a>
-        </CardSocialListItem>
-        <CardSocialListItem>
-          <a href="">Dance Studio</a>
-        </CardSocialListItem>
-        <CardSocialListItem>
-          <a href="">Photography</a>
-        </CardSocialListItem>
-        <CardSocialListItem>
-          <a href="">Admin Mode</a>
+          <Link to="/" as="li">
+            <p>Admin</p>
+          </Link>
         </CardSocialListItem>
       </QuickLinks>
 
