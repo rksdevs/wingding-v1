@@ -20,7 +20,7 @@ function App() {
       <Router>
         <Suspense fallback={null}>
           <GlobalStyle />
-          <ScrollToTop />
+          {/* <ScrollToTop /> */}
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />

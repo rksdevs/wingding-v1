@@ -16,7 +16,7 @@ const Section = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 5rem 0;
+  margin-bottom: 2rem;
 `;
 
 const Title = styled.h1`

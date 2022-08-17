@@ -14,6 +14,7 @@ const TeamContainer = styled.section`
   width: 100%;
   position: relative;
   height: 50vh;
+  margin-bottom: 12rem;
 
   @media only Screen and (max-width: 40em) {
     display: flex;
