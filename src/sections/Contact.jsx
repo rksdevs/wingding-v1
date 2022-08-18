@@ -1,3 +1,4 @@
+import * as React from "react";
 import Facebook from "../assets/facebook-square-brands.svg";
 import LinkedId from "../assets/linkedin-brands.svg";
 import Twitter from "../assets/twitter-square-brands.svg";
@@ -7,6 +8,9 @@ import CallIcon from "@mui/icons-material/Call";
 import MailIcon from "@mui/icons-material/Mail";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import AdminNav from "../components/AdminNav";
 
 const MainContainer = styled.div`
   width: 100vw;
@@ -306,7 +310,7 @@ const Contact = () => {
         </CardSocialListItem>
         <CardSocialListItem>
           <Link to="/" as="li">
-            <p>Admin</p>
+            <AdminNav />
           </Link>
         </CardSocialListItem>
       </QuickLinks>

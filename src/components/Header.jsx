@@ -57,7 +57,7 @@ const Nav = styled.nav`
   }
 `;
 
-const Button = styled.button`
+const StyledButton = styled.button`
   background-color: var(--yellow);
   padding: 0.5rem 1rem;
   border-radius: 10px;
@@ -138,15 +138,7 @@ const MobileMenu = styled.div`
 
 const Header = () => {
   const [click, setClick] = useState(false);
-  // const [currentLocation, setCurrentLocation] = useState(false);
-
-  // const handleClick = (id, e) => {
-  //   setClick(!click);
-  //   scrollUp(id, e);
-  // };
-  //const handleClick = () => setClick(!click);
   const ref = useRef(null);
-  // const location = useLocation();
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -159,18 +151,6 @@ const Header = () => {
       inline: "nearest",
     });
   };
-
-  const handleClick = (id, e) => {
-    setClick(!click);
-    scrollUp(id, e);
-  };
-
-  // useEffect(() => {
-  //   location.pathname == "/"
-  //     ? setCurrentLocation(true)
-  //     : setCurrentLocation(false);
-  //   console.log(currentLocation);
-  // }, []);
 
   useEffect(() => {
     const element = ref.current;
@@ -241,7 +221,7 @@ const Header = () => {
           About
         </a>
         <a href="#contact" onClick={(e) => scrollUp("contact", e)}>
-          <Button>Contact Us</Button>
+          <StyledButton>Contact Us</StyledButton>
         </a>
       </Nav>
       <HamburgerBtn clicked={click} onClick={() => setClick(!click)}>
@@ -255,8 +235,9 @@ const Header = () => {
         <a href="#about" onClick={() => setClick(!click)}>
           About
         </a>
+
         <a href="#contact" onClick={() => setClick(!click)}>
-          <Button>Contact Us</Button>
+          <StyledButton>Contact Us</StyledButton>
         </a>
       </MobileMenu>
     </Headers>
