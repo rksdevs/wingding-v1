@@ -130,7 +130,11 @@ export default function TitlebarImageList() {
       >
         {documents.map((item, index) => (
           <ImageListItem key={item?.id}>
-            <ImageOptions />
+            <ImageOptions
+              imageId={item?.id}
+              uid={item?.data?.uid}
+              imageURL={item?.data?.imageURL}
+            />
             <img
               src={`${item?.data.imageURL}?w=248&fit=crop&auto=format`}
               srcSet={`${item?.data.imageURL}?w=248&fit=crop&auto=format&dpr=2 2x`}

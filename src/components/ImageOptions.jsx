@@ -6,35 +6,38 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Tooltip from "@mui/material/Tooltip";
 import { IconButton } from "@mui/material";
 import { Delete, MoreVert } from "@mui/icons-material";
-// import deleteDocument from '../../firebase/deleteDocument';
-// import deleteFile from '../../firebase/deleteFile';
+import deleteFile from "../firebase/deleteFile";
+import deleteDocument from "../firebase/deleteDocument";
 // import { useAuth } from "../../context/AuthContext";
 
 export default function ImageOptions({ imageId, uid, imageURL }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   //   const { currentUser, setAlert } = useAuth();
+  const currentUser = { uid: "userId" };
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
-  //   const handleDelete = async () => {
-  //     try {
-  //       await deleteDocument('gallery', imageId);
-  //       await deleteFile(`gallery/${currentUser.uid}/${imageId}`);
-  //     } catch (error) {
-  //       setAlert({
-  //         isAlert: true,
-  //         severity: 'error',
-  //         message: error.message,
-  //         timeout: 8000,
-  //         location: 'main',
-  //       });
-  //       console.log(error);
-  //     }
-  //   };
+  const handleDelete = async () => {
+    try {
+      await deleteDocument("gallery", imageId);
+      await deleteFile(`gallery/${currentUser.uid}/${imageId}`);
+    } catch (error) {
+      //   setAlert({
+      //     isAlert: true,
+      //     severity: "error",
+      //     message: error.message,
+      //     timeout: 8000,
+      //     location: "main",
+      //   });
+      alert(error.message);
+      console.log(error);
+    }
+  };
 
   //   const handleDownload = async () => {
   //     try {
@@ -110,7 +113,7 @@ export default function ImageOptions({ imageId, uid, imageURL }) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>
+        <MenuItem onClick={handleDelete}>
           <ListItemIcon>
             <Delete />
           </ListItemIcon>
