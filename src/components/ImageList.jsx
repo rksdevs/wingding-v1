@@ -142,18 +142,6 @@ export default function TitlebarImageList() {
               loading="lazy"
               onClick={() => handleClick(item, index)}
             />
-            {/* <ImageListItemBar
-              title={item.title}
-              subtitle={item.author}
-              actionIcon={
-                <IconButton
-                  sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                  aria-label={`info about ${item.title}`}
-                >
-                  <InfoIcon />
-                </IconButton>
-              }
-            /> */}
           </ImageListItem>
         ))}
       </ImageList>

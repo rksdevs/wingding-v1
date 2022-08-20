@@ -13,6 +13,8 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { Button } from "@mui/material";
 import styled from "styled-components";
+import { useAuth } from "../context/AuthContext";
+import Login from "./user/Login";
 
 const Styledtext = styled.p`
     color: var(--pink2);
@@ -26,7 +28,8 @@ const Styledtext = styled.p`
 `;
 
 export default function AdminNav() {
-  const [currentUser, setCurrentUser] = React.useState(null);
+  // const [currentUser, setCurrentUser] = React.useState(true);
+  const { currentUser, setModal } = useAuth();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -36,11 +39,15 @@ export default function AdminNav() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const openLogin = () => {
+    setModal({ isOpen: true, title: "Login", content: <Login /> });
+  };
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
         {!currentUser ? (
-          <Styledtext>Admin Mode</Styledtext>
+          <Styledtext onClick={openLogin}>Admin Mode</Styledtext>
         ) : (
           <Styledtext onClick={handleClick}>Admin Settings</Styledtext>
         )}
