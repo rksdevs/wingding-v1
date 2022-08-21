@@ -11,14 +11,15 @@ const ProgressItem = ({ file }) => {
   const [progress, setProgress] = useState(100);
   const [imageURL, setImageURL] = useState(null);
   // const currentUser = { uid: "userId" };
-  const { currentUser, setAlert } = useAuth();
+  const { currentUser, setAlert, folderName } = useAuth();
+
   useEffect(() => {
     const uploadImage = async () => {
       const imageName = uuidv4() + "." + file.name.split(".").pop();
       try {
         const url = await uploadFileProgress(
           file,
-          `gallery/${currentUser?.uid}`,
+          `${folderName}/${currentUser?.uid}`,
           imageName,
           setProgress
         );
@@ -30,7 +31,7 @@ const ProgressItem = ({ file }) => {
           uName: currentUser?.displayName || "",
           uPhoto: currentUser?.photoURL || "",
         };
-        await addDocument("gallery", galleryDoc, imageName);
+        await addDocument(folderName, galleryDoc, imageName);
         setImageURL(null);
       } catch (error) {
         setAlert({
@@ -46,6 +47,7 @@ const ProgressItem = ({ file }) => {
     };
     setImageURL(URL.createObjectURL(file));
     uploadImage();
+    // eslint-disable-next-line
   }, [file]);
   return (
     // imageURL && (

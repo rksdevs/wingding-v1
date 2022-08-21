@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import waves from "../assets/waves.svg";
 // import taskDone from "../assets/taxi-tasks-done.png";
 import aboutConversation from "../assets/taxi-conversation.png";
+// import { useAuth } from "../context/AuthContext";
 
 const move = keyframes`
 0% { transform: translateY(-5px)         }
@@ -111,6 +112,7 @@ const Circle = styled.span`
 `;
 
 const About = () => {
+  // const { folderName } = useAuth();
   return (
     <AboutSection id="about">
       <Waves src={waves} alt="Waves" width="400" height="400" />

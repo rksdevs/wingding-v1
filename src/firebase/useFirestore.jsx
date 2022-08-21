@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { db } from "./config";
 
-const useFirestore = (collectionName = "gallery") => {
+const useFirestore = (collectionName) => {
   const [documents, setDocuments] = useState([]);
   const { setAlert } = useAuth();
   useEffect(() => {
@@ -33,6 +33,7 @@ const useFirestore = (collectionName = "gallery") => {
     );
 
     return () => unsubscribe();
+    // eslint-disable-next-line
   }, [collectionName]);
 
   return { documents };

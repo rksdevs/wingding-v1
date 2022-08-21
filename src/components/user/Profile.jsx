@@ -17,10 +17,10 @@ import deleteFile from "../../firebase/deleteFile";
 import updateUserRecords from "../../firebase/updateUserRecords";
 // import CropEasy from "../crop/CropEasy";
 // import { Crop } from "@mui/icons-material";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const Profile = () => {
-  const { currentUser, setLoading, setAlert, modal, setModal } = useAuth();
+  const { currentUser, setLoading, setAlert, folderName } = useAuth();
   const [name, setName] = useState(currentUser?.displayName);
   const [file, setFile] = useState(null);
   const [photoURL, setPhotoURL] = useState(currentUser?.photoURL);
@@ -67,7 +67,7 @@ const Profile = () => {
       }
 
       await updateProfile(currentUser, userObj);
-      await updateUserRecords("gallery", currentUser?.uid, imagesObj);
+      await updateUserRecords(folderName, currentUser?.uid, imagesObj);
 
       setAlert({
         isAlert: true,

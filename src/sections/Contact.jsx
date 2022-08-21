@@ -8,8 +8,8 @@ import CallIcon from "@mui/icons-material/Call";
 import MailIcon from "@mui/icons-material/Mail";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+// import Menu from "@mui/material/Menu";
+// import MenuItem from "@mui/material/MenuItem";
 import AdminNav from "../components/AdminNav";
 
 const MainContainer = styled.div`
@@ -37,9 +37,9 @@ const QuickLinks = styled.section`
     margin-top: 2rem;
   }
 `;
-const CardSocial = styled.ul`
-  list-style: none;
-`;
+// const CardSocial = styled.ul`
+//   list-style: none;
+// `;
 const CardSocialListItem = styled.li`
   display: inline-block;
   margin: 5px 5px;
@@ -90,10 +90,10 @@ const AddressItem = styled.li`
   }
 `;
 
-const LocationItem = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+// const LocationItem = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
 
 const ContactSection = styled.section`
   padding: calc(1rem + 1vw) 0;

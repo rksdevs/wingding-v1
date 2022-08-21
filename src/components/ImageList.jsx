@@ -51,8 +51,11 @@ export default function TitlebarImageList() {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [open, setOpen] = React.useState(false);
-  const { documents } = useFirestore("gallery");
-  const { currentUser } = useAuth();
+
+  const { currentUser, folderName } = useAuth();
+  const { documents } = useFirestore(folderName);
+
+  // const tempFolderName = location.pathname.split("/")[1];
 
   const handleClose = () => setOpen(false);
   const handleImageClose = (e) => {
@@ -64,6 +67,10 @@ export default function TitlebarImageList() {
   useEffect(() => {
     setOpen(true);
   }, [clickedImg]);
+
+  // useEffect(() => {
+  //   setFolderName(location.pathname.split("/")[1]);
+  // }, []);
 
   const handleClick = (item, index) => {
     setCurrentIndex(index);
@@ -118,6 +125,7 @@ export default function TitlebarImageList() {
   return currentUser ? (
     <>
       <Upload />
+
       <ImageList
         sx={
           matches

@@ -73,15 +73,15 @@ const CardGroup = styled.div`
   }
 `;
 
-const CardDiv = styled.div`
-  display: flex;
-  margin: 0.5rem;
-  padding: 0.5rem;
+// const CardDiv = styled.div`
+//   display: flex;
+//   margin: 0.5rem;
+//   padding: 0.5rem;
 
-  @media only Screen and (max-width: 40em) {
-    flex-direction: column;
-  }
-`;
+//   @media only Screen and (max-width: 40em) {
+//     flex-direction: column;
+//   }
+// `;
 
 const CardContainerMobile = styled.div`
   margin-top: 2rem;

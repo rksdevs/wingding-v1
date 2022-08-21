@@ -11,13 +11,14 @@ import { useAuth } from "../../../context/AuthContext";
 import deleteUserFiles from "../../../firebase/deleteUserFiles";
 
 const DeleteAccount = () => {
-  const { currentUser, setLoading, setAlert, setModal, modal } = useAuth();
+  const { currentUser, setLoading, setAlert, setModal, modal, folderName } =
+    useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await deleteUserFiles("gallery", currentUser);
+      await deleteUserFiles(folderName, currentUser);
       await deleteUser(currentUser);
       setModal({ ...modal, isOpen: false });
       setAlert({

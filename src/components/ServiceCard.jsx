@@ -1,41 +1,6 @@
-// import * as React from "react";
-// import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
-// import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
-// import Button from "@mui/material/Button";
-// import Typography from "@mui/material/Typography";
-// import { height } from "@mui/system";
-
-// export default function MediaCard({ pic, title, content }) {
-//   return (
-//     <Card sx={{ maxWidth: 345 }}>
-//       <CardMedia
-//         component="img"
-//         height="140"
-//         image={pic}
-//         alt="picture"
-//         style={{ width: "100%", height: "40%", objectFit: "cover" }}
-//       />
-//       <CardContent>
-//         <Typography gutterBottom variant="h5" component="div">
-//           {title}
-//         </Typography>
-//         <Typography variant="body2" color="text.secondary">
-//           {content}
-//         </Typography>
-//       </CardContent>
-//       <CardActions>
-//         <Button size="small">Share</Button>
-//         <Button size="small">Learn More</Button>
-//       </CardActions>
-//     </Card>
-//   );
-// }
-
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const move = keyframes`
 0% { transform: translateY(-5px)         }
@@ -127,11 +92,11 @@ const CardButton = styled.button`
 `;
 
 const ServiceCard = ({ pic, title, content, to }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <Card>
       <CardImage>
-        <img src={pic} alt="Picture" height="400" width="400" />
+        <img src={pic} alt="cardimg" height="400" width="400" />
       </CardImage>
       <CardContent>
         <CardTitle>{title}</CardTitle>

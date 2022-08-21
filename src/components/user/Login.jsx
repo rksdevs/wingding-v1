@@ -1,5 +1,5 @@
 import React from "react";
-import { Google } from "@mui/icons-material";
+// import { Google } from "@mui/icons-material";
 import {
   Button,
   DialogActions,
@@ -19,15 +19,7 @@ const Login = () => {
   const confirmPasswordRef = useRef();
   const [isRegister, setIsRegister] = useState(false);
 
-  const {
-    modal,
-    setModal,
-    login,
-    signup,
-    loginWithGoogle,
-    setAlert,
-    setLoading,
-  } = useAuth();
+  const { modal, setModal, login, signup, setAlert, setLoading } = useAuth();
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -108,6 +100,7 @@ const Login = () => {
     } else {
       setModal({ ...modal, title: "Login" });
     }
+    // eslint-disable-next-line
   }, [isRegister]);
   return (
     <>

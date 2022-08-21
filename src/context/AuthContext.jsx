@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { useLocation } from "react-router-dom";
 
 const authContext = createContext();
 
@@ -25,6 +26,10 @@ const AuthContext = ({ children }) => {
     location: "",
   });
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
+
+  const [folderName, setFolderName] = useState("");
+  //   const [galleryDisplayName, setGalleryDisplayName] = useState("");
 
   //removing sign up functionality for better security
 
@@ -39,6 +44,10 @@ const AuthContext = ({ children }) => {
   const logout = () => {
     return signOut(auth);
   };
+
+  useEffect(() => {
+    setFolderName(location.pathname.split("/")[1]);
+  }, [location]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -59,6 +68,8 @@ const AuthContext = ({ children }) => {
     setAlert,
     loading,
     setLoading,
+    folderName,
+    setFolderName,
   };
   return <authContext.Provider {...{ value }}>{children}</authContext.Provider>;
 };

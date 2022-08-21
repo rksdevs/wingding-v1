@@ -25,6 +25,7 @@ const Notify = () => {
       }, timeout);
     }
     return () => clearTimeout(timer);
+    // eslint-disable-next-line
   }, [timeout]);
 
   return (

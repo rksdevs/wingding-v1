@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import White from "../assets/blobgrey6.png";
 import Pink2 from "../assets/blobpink9.png";
 import Arrow from "../assets/Arrow Right.svg";
+import { useState } from "react";
 
 const move = keyframes`
 0% { transform: translateY(-5px)  }
@@ -169,6 +170,7 @@ const TeamIllustration = styled.img`
 `;
 
 const Hero = ({ title, subText, imgSource }) => {
+  const [click, setClick] = useState(false);
   return (
     <HeroSection id="home">
       <Blobs>
@@ -187,10 +189,12 @@ const Hero = ({ title, subText, imgSource }) => {
           </Topic>
           <Title>{title}</Title>
           <SubText>{subText}</SubText>
-          <CTA>
-            Get in touch &nbsp;
-            <img src={Arrow} alt="CTA" width="400" height="400" />
-          </CTA>
+          <a href="#contact" onClick={() => setClick(!click)}>
+            <CTA>
+              Get in touch &nbsp;
+              <img src={Arrow} alt="CTA" width="400" height="400" />
+            </CTA>
+          </a>
         </LeftBlock>
         <TeamIllustration
           src={imgSource}

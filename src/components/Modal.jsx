@@ -1,6 +1,6 @@
 import { Close } from "@mui/icons-material";
 import { Dialog, DialogTitle, IconButton } from "@mui/material";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import Notify from "./Notify";
 
@@ -8,8 +8,9 @@ const Modal = () => {
   const {
     modal,
     setModal,
-    alert: { location, isAlert },
-    setAlert,
+    // alert: { location, isAlert },
+    // setAlert,
+    alert: { location },
   } = useAuth();
 
   const handleClose = () => {

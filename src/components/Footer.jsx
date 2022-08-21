@@ -51,11 +51,11 @@ const Footer = () => {
       <LeftText>Copyright© 2022 WingdinG</LeftText>
       <RightText>
         Reach out to us via 😉
-        <a href="">
+        <a href="https://twitter.com/">
           <img src={Twitter} alt="Twitter" />
         </a>
         &nbsp;
-        <a href="">
+        <a href="https://www.instagram.com/">
           <img src={Instagram} alt="Instagram" />
         </a>
         &nbsp;
