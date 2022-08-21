@@ -17,6 +17,16 @@ export const useAuth = () => {
 const AuthContext = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [modal, setModal] = useState({ isOpen: false, title: "", content: "" });
+  const [alert, setAlert] = useState({
+    isAlert: false,
+    severity: "info",
+    message: "",
+    timeout: null,
+    location: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  //removing sign up functionality for better security
 
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -40,11 +50,15 @@ const AuthContext = ({ children }) => {
 
   const value = {
     currentUser,
-    signup,
     login,
+    signup,
     logout,
     modal,
     setModal,
+    alert,
+    setAlert,
+    loading,
+    setLoading,
   };
   return <authContext.Provider {...{ value }}>{children}</authContext.Provider>;
 };

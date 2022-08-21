@@ -2,14 +2,14 @@ import { Close } from "@mui/icons-material";
 import { Dialog, DialogTitle, IconButton } from "@mui/material";
 import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-// import Notify from "./Notify";
+import Notify from "./Notify";
 
 const Modal = () => {
   const {
     modal,
     setModal,
-    // alert: { location, isAlert },
-    // setAlert,
+    alert: { location, isAlert },
+    setAlert,
   } = useAuth();
 
   const handleClose = () => {
@@ -19,7 +19,7 @@ const Modal = () => {
   //   useEffect(() => {
   //     if (modal.isOpen === false) {
   //       if (isAlert && location === "modal") {
-  //         setAlert({ ...alert, isAlert: false });
+  //         set{ ...alert, isAlert: false });
   //       }
   //     }
   //   }, [modal?.isOpen]);
@@ -40,7 +40,7 @@ const Modal = () => {
           <Close />
         </IconButton>
       </DialogTitle>
-      {/* {location === "modal" && <Notify />} */}
+      {location === "modal" && <Notify />}
       {modal.content}
     </Dialog>
   );

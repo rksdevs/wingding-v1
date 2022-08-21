@@ -5,14 +5,13 @@ import CircularProgressComponent from "./CircularProgressComponent";
 import { v4 as uuidv4 } from "uuid";
 import uploadFileProgress from "../../../firebase/uploadFileProgress";
 import addDocument from "../../../firebase/addDocument";
-// import addDocument from "../../../firebase/addDocument";
-// import { useAuth } from '../../../context/AuthContext';
+import { useAuth } from "../../../context/AuthContext";
 
 const ProgressItem = ({ file }) => {
   const [progress, setProgress] = useState(100);
   const [imageURL, setImageURL] = useState(null);
-  const currentUser = { uid: "userId" };
-  //   const { currentUser, setAlert } = useAuth();
+  // const currentUser = { uid: "userId" };
+  const { currentUser, setAlert } = useAuth();
   useEffect(() => {
     const uploadImage = async () => {
       const imageName = uuidv4() + "." + file.name.split(".").pop();
@@ -34,14 +33,14 @@ const ProgressItem = ({ file }) => {
         await addDocument("gallery", galleryDoc, imageName);
         setImageURL(null);
       } catch (error) {
-        // setAlert({
-        //   isAlert: true,
-        //   severity: "error",
-        //   message: error.message,
-        //   timeout: 8000,
-        //   location: "main",
-        // });
-        alert(error.message);
+        setAlert({
+          isAlert: true,
+          severity: "error",
+          message: error.message,
+          timeout: 8000,
+          location: "main",
+        });
+        // alert(error.message);
         console.log(error);
       }
     };

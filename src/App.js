@@ -3,6 +3,7 @@ import { GlobalStyle } from "./globalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthContext from "./context/AuthContext";
 import Modal from "./components/Modal";
+import MainNotification from "./components/MainNotification";
 
 //importing components using lazy - we can use suspense to load a spinner
 const Home = lazy(() => import("./pages/Home"));
@@ -25,6 +26,7 @@ function App() {
             <GlobalStyle />
             <ScrollToTop />
             <Modal />
+            <MainNotification />
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />

@@ -22,12 +22,85 @@ const Login = () => {
   const {
     modal,
     setModal,
-    signUp,
     login,
+    signup,
     loginWithGoogle,
     setAlert,
     setLoading,
   } = useAuth();
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   const email = emailRef.current.value;
+  //   const password = passwordRef.current.value;
+
+  //   try {
+  //     await login(email, password);
+  //     setModal({ ...modal, isOpen: false });
+  //   } catch (error) {
+  //     //   alert(error.message);
+  //     //   console.log(error);
+  //     setAlert({
+  //       isAlert: true,
+  //       severity: "error",
+  //       message: error.message,
+  //       timeout: 5000,
+  //       location: "modal",
+  //     });
+  //     console.log(error);
+  //   }
+  //   setLoading(false);
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    if (isRegister) {
+      const confirmPassword = confirmPasswordRef.current.value;
+      try {
+        if (password !== confirmPassword) {
+          throw new Error("Passwords don't match");
+        }
+        await signup(email, password);
+        setModal({ ...modal, isOpen: false });
+      } catch (error) {
+        setAlert({
+          isAlert: true,
+          severity: "error",
+          message: error.message,
+          timeout: 5000,
+          location: "modal",
+        });
+        console.log(error);
+      }
+    } else {
+      try {
+        await login(email, password);
+        setModal({ ...modal, isOpen: false });
+      } catch (error) {
+        setAlert({
+          isAlert: true,
+          severity: "error",
+          message: error.message,
+          timeout: 5000,
+          location: "modal",
+        });
+        console.log(error);
+      }
+    }
+    setLoading(false);
+  };
+
+  // useEffect(() => {
+  //   if (modal.isOpen === false) {
+  //     if (isAlert && location === "modal") {
+  //       setAlert({ ...alert, isAlert: false });
+  //     }
+  //   }
+  // }, [modal?.isOpen]);
 
   useEffect(() => {
     if (isRegister) {
@@ -38,7 +111,7 @@ const Login = () => {
   }, [isRegister]);
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <DialogContent dividers>
           <DialogContentText>
             Please enter your email and your password here:
@@ -72,6 +145,8 @@ const Login = () => {
           <SubmitButton />
         </DialogActions>
       </form>
+
+      {/* s */}
       <DialogActions sx={{ justifyContent: "left", p: "5px 24px" }}>
         {isRegister
           ? "Do you have an account? Sign in now"
@@ -80,7 +155,7 @@ const Login = () => {
           {isRegister ? "Login" : "Register"}
         </Button>
       </DialogActions>
-      <DialogActions sx={{ justifyContent: "center", py: "24px" }}>
+      {/* <DialogActions sx={{ justifyContent: "center", py: "24px" }}>
         <Button
           variant="outlined"
           startIcon={<Google />}
@@ -88,7 +163,7 @@ const Login = () => {
         >
           Login with Google
         </Button>
-      </DialogActions>
+      </DialogActions> */}
     </>
   );
 };

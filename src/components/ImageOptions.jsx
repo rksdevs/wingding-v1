@@ -8,13 +8,13 @@ import { IconButton } from "@mui/material";
 import { Delete, MoreVert } from "@mui/icons-material";
 import deleteFile from "../firebase/deleteFile";
 import deleteDocument from "../firebase/deleteDocument";
-// import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 export default function ImageOptions({ imageId, uid, imageURL }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  //   const { currentUser, setAlert } = useAuth();
-  const currentUser = { uid: "userId" };
+  const { currentUser, setAlert } = useAuth();
+  // const currentUser = { uid: "userId" };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -27,14 +27,13 @@ export default function ImageOptions({ imageId, uid, imageURL }) {
       await deleteDocument("gallery", imageId);
       await deleteFile(`gallery/${currentUser.uid}/${imageId}`);
     } catch (error) {
-      //   setAlert({
-      //     isAlert: true,
-      //     severity: "error",
-      //     message: error.message,
-      //     timeout: 8000,
-      //     location: "main",
-      //   });
-      alert(error.message);
+      setAlert({
+        isAlert: true,
+        severity: "error",
+        message: error.message,
+        timeout: 8000,
+        location: "main",
+      });
       console.log(error);
     }
   };
@@ -51,7 +50,7 @@ export default function ImageOptions({ imageId, uid, imageURL }) {
   //       URL.revokeObjectURL(blob);
   //       link.remove();
   //     } catch (error) {
-  //       setAlert({
+  //       set{
   //         isAlert: true,
   //         severity: 'error',
   //         message: error.message,

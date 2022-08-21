@@ -10,6 +10,7 @@ import Modal from "@mui/material/Modal";
 import ImageOptions from "./ImageOptions";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useFirestore from "../firebase/useFirestore";
+import { useAuth } from "../context/AuthContext";
 
 const style = {
   position: "absolute",
@@ -51,6 +52,7 @@ export default function TitlebarImageList() {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [open, setOpen] = React.useState(false);
   const { documents } = useFirestore("gallery");
+  const { currentUser } = useAuth();
 
   const handleClose = () => setOpen(false);
   const handleImageClose = (e) => {
@@ -113,9 +115,73 @@ export default function TitlebarImageList() {
 
   const matches = useMediaQuery("(min-width:600px)");
 
-  return (
+  return currentUser ? (
     <>
       <Upload />
+      <ImageList
+        sx={
+          matches
+            ? { width: "75%", overflowY: "inherit" }
+            : {
+                width: "75%",
+                overflowY: "inherit",
+                gridTemplateColumns:
+                  "repeat(auto-fill, minmax(280px, 1fr))!important",
+              }
+        }
+      >
+        {documents.map((item, index) => (
+          <ImageListItem key={item?.id}>
+            <ImageOptions
+              imageId={item?.id}
+              uid={item?.data?.uid}
+              imageURL={item?.data?.imageURL}
+            />
+            <img
+              src={`${item?.data.imageURL}?w=248&fit=crop&auto=format`}
+              srcSet={`${item?.data.imageURL}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt="img"
+              loading="lazy"
+              onClick={() => handleClick(item, index)}
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+      <div>
+        {clickedImg && (
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <div className="overlay dismiss" onClick={handleImageClose}>
+                <img src={clickedImg} alt="bigger pic" />
+                <span
+                  className="dismiss"
+                  onClick={handleImageClose}
+                  style={closeIconStyle}
+                >
+                  X
+                </span>
+
+                <ArrowBackIcon
+                  style={arrowBackwardStyle}
+                  onClick={handelRotationLeft}
+                />
+                <ArrowForwardIcon
+                  style={arrowForwardStyle}
+                  onClick={handelRotationRight}
+                />
+              </div>
+            </Box>
+          </Modal>
+        )}
+      </div>
+    </>
+  ) : (
+    <>
       <ImageList
         sx={
           matches

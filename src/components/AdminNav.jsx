@@ -15,6 +15,8 @@ import { Button } from "@mui/material";
 import styled from "styled-components";
 import { useAuth } from "../context/AuthContext";
 import Login from "./user/Login";
+import AccountSettings from "./user/settings/AccountSettings";
+import Profile from "./user/Profile";
 
 const Styledtext = styled.p`
     color: var(--pink2);
@@ -29,7 +31,7 @@ const Styledtext = styled.p`
 
 export default function AdminNav() {
   // const [currentUser, setCurrentUser] = React.useState(true);
-  const { currentUser, setModal } = useAuth();
+  const { currentUser, setModal, logout, setAlert } = useAuth();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -42,6 +44,21 @@ export default function AdminNav() {
 
   const openLogin = () => {
     setModal({ isOpen: true, title: "Login", content: <Login /> });
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      setAlert({
+        isAlert: true,
+        severity: "error",
+        message: error.message,
+        timeout: 8000,
+        location: "main",
+      });
+      console.log(error);
+    }
   };
   return (
     <React.Fragment>
@@ -99,17 +116,33 @@ export default function AdminNav() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>
-          <Avatar /> Profile
+        <MenuItem
+        // onClick={() =>
+        //   setModal({
+        //     isOpen: true,
+        //     title: "Update Profile",
+        //     content: <Profile />,
+        //   })
+        // }
+        >
+          <Avatar src={currentUser?.photoURL} /> Profile
         </MenuItem>
         <Divider />
-        <MenuItem>
+        <MenuItem
+          onClick={() =>
+            setModal({
+              isOpen: true,
+              title: "Account Settings",
+              content: <AccountSettings />,
+            })
+          }
+        >
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
